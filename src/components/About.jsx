@@ -29,7 +29,7 @@ export default function About() {
         <div className="mt-16 grid gap-5 md:mt-20 md:grid-cols-3">
           {about.capabilities.map((group, i) => (
             <Reveal key={group.title} delay={i * 120}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(14,26,43,.35)]">
+              <div className="group relative h-full overflow-hidden glass rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(14,26,43,.35)]">
               <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r ${tones[i].bar}`} />
               <h3 className="label !text-ink">{group.title}</h3>
               <ul className="mt-5 space-y-2.5">

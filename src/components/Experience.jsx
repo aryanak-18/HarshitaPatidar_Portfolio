@@ -73,8 +73,8 @@ export default function Experience() {
                     </motion.span>
                   )}
                   <span className="relative flex items-center gap-3">
-                    <span className="hidden h-9 w-9 shrink-0 place-items-center rounded-lg bg-white p-1.5 shadow-[0_0_0_1px_rgb(var(--line))] lg:grid">
-                      <img src={item.logo} alt="" className="max-h-full max-w-full object-contain" />
+                    <span className="hidden h-9 w-9 shrink-0 overflow-hidden rounded-lg ring-1 ring-ink/10 lg:block">
+                      <img src={item.logo} alt="" className="h-full w-full object-cover" />
                     </span>
                     <span>
                       <span className={`block lg:text-[17px] ${selected ? 'font-medium' : ''}`}>{item.company}</span>

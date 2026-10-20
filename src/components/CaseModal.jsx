@@ -75,7 +75,7 @@ export default function CaseModal({ item, next, onNext, onClose }) {
               {item.title}
             </h2>
 
-            <div className="mt-8 flex items-end gap-5 rounded-2xl border border-line bg-surface p-6">
+            <div className="mt-8 flex items-end gap-5 glass rounded-2xl p-6">
               <span className="font-serif text-[52px] leading-none tracking-[-.02em] text-accent">{item.metric}</span>
               <span className="pb-1 text-sm text-body">{item.metricLabel}</span>
             </div>

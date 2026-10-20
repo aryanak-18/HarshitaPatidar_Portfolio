@@ -1,11 +1,10 @@
 import { useRef, useState } from 'react'
 import { cases } from '../data/portfolio'
 import CaseModal from './CaseModal'
-import CountUp from './CountUp'
 import Reveal from './Reveal'
 import SectionHeader from './SectionHeader'
 
-const accents = ['from-pop-green to-pop-lime', 'from-pop-teal to-pop-green', 'from-pop-amber to-pop-lime', 'from-pop-violet to-pop-teal', 'from-pop-green to-pop-teal', 'from-pop-amber to-pop-violet']
+const accents = ['from-pop-green to-pop-lime', 'from-pop-teal to-pop-green', 'from-pop-green to-pop-teal', 'from-pop-teal to-pop-lime']
 
 function CaseCard({ item, index, onOpen }) {
   const ref = useRef(null)
@@ -30,7 +29,7 @@ function CaseCard({ item, index, onOpen }) {
       ref={ref}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-[transform,box-shadow,border-color] duration-300 ease-out hover:border-transparent hover:shadow-[0_30px_60px_-30px_rgba(14,26,43,.4)] focus-within:border-ink/40 motion-reduce:!transform-none"
+      className="group relative flex h-full flex-col overflow-hidden glass rounded-2xl p-7 transition-[transform,box-shadow,border-color] duration-300 ease-out hover:border-transparent hover:shadow-[0_30px_60px_-30px_rgba(14,26,43,.4)] focus-within:border-ink/40 motion-reduce:!transform-none"
     >
       {/* Cursor spotlight + gradient rim */}
       <div
@@ -50,7 +49,7 @@ function CaseCard({ item, index, onOpen }) {
       <div className="relative mt-auto pt-10">
         <div className="flex items-end justify-between gap-4 border-t border-line pt-5">
           <div>
-            <CountUp value={item.metric} className={`bg-gradient-to-r bg-clip-text font-serif text-[40px] leading-none tracking-[-.02em] text-ink transition-colors duration-300 group-hover:text-transparent ${accents[index % accents.length]}`} />
+            <span className={`bg-gradient-to-r bg-clip-text font-serif text-[40px] leading-none tracking-[-.02em] text-ink tabular-nums transition-colors duration-300 group-hover:text-transparent ${accents[index % accents.length]}`}>{item.metric}</span>
             <div className="mt-2 text-xs text-muted">{item.metricLabel}</div>
           </div>
           <button
@@ -73,7 +72,7 @@ export default function Work() {
   const [active, setActive] = useState(null)
 
   return (
-    <section id="work" className="section relative bg-gradient-to-b from-surface/50 via-surface/30 to-accent-wash/60">
+    <section id="work" className="section relative bg-gradient-to-b from-transparent via-accent-wash/50 to-transparent">
       <div className="wrap">
         <SectionHeader
           index="03"

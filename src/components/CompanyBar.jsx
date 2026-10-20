@@ -29,20 +29,15 @@ export default function CompanyBar() {
               <button
                 type="button"
                 onClick={() => select(i)}
-                className={`group flex items-center gap-2.5 rounded-full py-1 pl-1.5 pr-3.5 transition-colors duration-300 ${current === i ? 'bg-accent-wash text-ink' : 'text-muted hover:text-ink'}`}
+                className={`group flex items-center gap-2.5 rounded-full py-1 pl-1 pr-3.5 transition-colors duration-300 ${current === i ? 'bg-ink/[.06] text-ink' : 'text-muted hover:text-ink'}`}
               >
-                <span
-                  className={`relative grid h-6 min-w-6 place-items-center rounded-md bg-white px-1 shadow-[0_0_0_1px_rgb(var(--line))] transition duration-300 ${current === i ? '' : 'opacity-80 grayscale group-hover:opacity-100 group-hover:grayscale-0'}`}
-                >
-                  <img src={job.logo} alt="" className="h-4 w-auto max-w-[44px] object-contain" />
+                <span className={`relative h-6 w-6 shrink-0 transition duration-300 ${current === i ? '' : 'opacity-75 group-hover:opacity-100'}`}>
+                  <img src={job.logo} alt="" className="h-full w-full rounded-md object-cover ring-1 ring-ink/10" />
                   {i === 0 && (
-                    <span className="absolute -right-0.5 -top-0.5 flex h-2 w-2" title="Current role">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pop-green opacity-60" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full border border-paper bg-pop-green" />
-                    </span>
+                    <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full border border-paper bg-pop-green" title="Current role" />
                   )}
                 </span>
-                <span className="font-serif text-[15px] leading-none">{job.company}</span>
+                <span className="text-[11px] font-medium uppercase leading-none tracking-[.14em]">{job.company}</span>
               </button>
             </li>
           ))}

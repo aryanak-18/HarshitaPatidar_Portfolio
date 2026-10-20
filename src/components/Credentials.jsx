@@ -1,5 +1,4 @@
 import { credentials } from '../data/portfolio'
-import CountUp from './CountUp'
 import Reveal from './Reveal'
 import SectionHeader from './SectionHeader'
 
@@ -7,9 +6,9 @@ export default function Credentials() {
   const { education, leadership, recognition } = credentials
 
   return (
-    <section id="credentials" className="section bg-surface/40">
+    <section id="credentials" className="section">
       <div className="wrap">
-        <SectionHeader index="05" label="Credentials" title="Education, leadership and recognition." />
+        <SectionHeader index="05" label="Education" title="Education, leadership and recognition." />
 
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
           <div className="min-w-0 lg:col-span-7">
@@ -42,8 +41,7 @@ export default function Credentials() {
 
             <Reveal className="mt-14">
               <h3 className="label !text-ink">Leadership</h3>
-              <div className="relative mt-5 overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-surface via-surface to-accent-wash p-7">
-                <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] animate-gradient-pan bg-[length:300%_100%] bg-[linear-gradient(90deg,#0B6E4F,#12B76A,#B5E655,#0EA5A4,#0B6E4F)]" />
+              <div className="relative mt-5 overflow-hidden glass rounded-2xl p-7">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                   <p className="font-serif text-[23px] leading-[1.2] text-ink">
                     {leadership.role}
@@ -57,7 +55,7 @@ export default function Credentials() {
                     <div key={label}>
                       <dt className="sr-only">{label}</dt>
                       <dd>
-                        <CountUp value={value} className="text-gradient font-serif text-[32px] leading-none" />
+                        <span className="text-gradient font-serif text-[32px] leading-none tabular-nums">{value}</span>
                       </dd>
                       <dd className="mt-2 text-xs text-muted">{label}</dd>
                     </div>

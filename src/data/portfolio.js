@@ -3,7 +3,8 @@
 export const config = {
   name: 'Harshita Patidar',
   email: 'harshitapatidar003@gmail.com',
-  linkedin: '',
+  linkedin: 'https://in.linkedin.com/in/harshita-patidar-032b9a1b7',
+  resume: 'https://drive.google.com/file/d/1xBQ-vgn0MMMw9Df1DKoTnwMlya28EohE/view?usp=sharing',
 }
 
 export const navLinks = [
@@ -11,26 +12,25 @@ export const navLinks = [
   { id: 'experience', label: 'Experience' },
   { id: 'work', label: 'Work' },
   { id: 'approach', label: 'Approach' },
-  { id: 'credentials', label: 'Credentials' },
+  { id: 'credentials', label: 'Education' },
 ]
 
 export const hero = {
-  status: "Founder's Office · Product & Growth at Nubra",
-  setup: 'Anyone can bring users in.',
-  headline: 'I make them ',
-  emphasis: 'stay.',
-  copy: 'Product and growth at Nubra. I ship the features users touch first, from homepage to onboarding, and instrument the funnels that prove they keep coming back.',
+  // Each line: [regular text, bold text]
+  lines: [['Making things ', 'click.'], ['And ', 'stick.']],
+  // Rendered as: Driving GROWTH through <pillars>.
+  tagline: { focus: 'growth', pillars: 'Product Instincts, Marketing Psychology, and Analytics Signals' },
   facts: [
     ['Currently', "Founder's Office, Nubra"],
-    ['Focus', 'Activation · Retention · Analytics'],
+    ['Focus', 'End-to-end product lifecycle · Shipping · Product analytics · Retention'],
     ['Education', 'B.Com (Hons.), SRCC'],
   ],
   marquee: ['Product-led growth', 'Activation', 'Retention', 'SQL', 'Python', 'Playwright', 'Metabase', 'GTM strategy', 'CRM', 'Push notifications', 'API specs', 'Power BI'],
-  // Illustrative push notifications floating around the hero card.
+  // Capability tags floating around the hero card.
   toasts: [
-    { title: 'KYC verified', body: "You're all set to start trading", tone: 'green', icon: '✓' },
-    { title: 'Funds added', body: 'Ready for your first order', tone: 'amber', icon: '₹' },
-    { title: 'Welcome back', body: 'Day 3 · Your watchlist moved', tone: 'violet', icon: '↗' },
+    { title: 'End-to-end product shipment', body: 'PRD → API specs → QA → launch', icon: 'ship' },
+    { title: 'Lifecycle tracking', body: 'Every stage, sign-up to repeat use', icon: 'pulse' },
+    { title: 'Retention framework', body: 'Triggers, nudges and cohort reviews', icon: 'loop' },
   ],
 }
 
@@ -77,7 +77,7 @@ export const about = {
 export const experience = [
   {
     company: 'Nubra',
-    logo: '/logos/nubra.png',
+    logo: '/logos/nubra.jpg',
     role: "Founder's Office — Product & Growth",
     context: 'Retail SEBI-registered stock broker',
     period: 'Jul 2024 — Present',
@@ -93,7 +93,7 @@ export const experience = [
   },
   {
     company: 'KPMG India',
-    logo: '/logos/kpmg.svg',
+    logo: '/logos/kpmg.jpg',
     role: 'Summer Intern',
     context: 'Trade & market research',
     period: 'Jun 2023 — Jul 2023',
@@ -106,7 +106,7 @@ export const experience = [
   },
   {
     company: 'Michael Page',
-    logo: '/logos/michaelpage.png',
+    logo: '/logos/michaelpage.jpg',
     role: 'Intern — Healthcare & Lifesciences',
     context: 'PageGroup recruitment consultancy',
     period: 'Feb 2023 — Apr 2023',
@@ -119,7 +119,7 @@ export const experience = [
   },
   {
     company: 'Tata Capital HF',
-    logo: '/logos/tata.png',
+    logo: '/logos/tata-capital.jpg',
     role: 'Finance Intern',
     context: 'Housing finance',
     period: 'Nov 2022 — Dec 2022',
@@ -290,7 +290,7 @@ export const credentials = {
 }
 
 export const contact = {
-  title: 'Have a product to grow? ',
-  emphasis: "Let's talk.",
+  title: '',
+  emphasis: "Let's connect.",
   copy: "I'm always happy to talk product-led growth, fintech, analytics, and opportunities to build products people return to.",
 }

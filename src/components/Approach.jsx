@@ -23,7 +23,7 @@ export default function Approach() {
         <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {approach.steps.map(([title, copy], i) => (
             <Reveal as="li" key={title} delay={i * 150}>
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface p-7 transition duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_24px_48px_-28px_rgba(14,26,43,.35)] md:min-h-[300px]">
+              <div className="group relative flex h-full flex-col overflow-hidden glass rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_24px_48px_-28px_rgba(14,26,43,.35)] md:min-h-[300px]">
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-accent-wash to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <span className="relative flex items-center justify-between">
                 <span className="font-mono text-xs text-accent">Step {String(i + 1).padStart(2, '0')}</span>
