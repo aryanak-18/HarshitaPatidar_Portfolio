@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Theme tokens as RGB channels so Tailwind opacity modifiers work. Light first, dark overrides. */
+  :root {
+    --paper: 250 250 247;
+    --surface: 255 255 255;
+    --ink: 14 26 43;
+    --body: 61 70 84;
+    --muted: 107 114 128;
+    --line: 229 228 222;
+    --line-strong: 210 208 200;
+    --accent: 11 110 79;
+    --accent-dark: 8 83 59;
+    --accent-soft: 207 230 218;
+    --accent-wash: 238 245 241;
+    color-scheme: light;
+  }
+  .dark {
+    --paper: 11 20 34;
+    --surface: 19 32 51;
+    --ink: 240 244 242;
+    --body: 178 188 201;
+    --muted: 131 143 160;
+    --line: 33 48 71;
+    --line-strong: 50 68 96;
+    --accent: 94 224 166;
+    --accent-dark: 52 199 138;
+    --accent-soft: 30 77 62;
+    --accent-wash: 16 42 41;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 130px;
+  }
+  body {
+    @apply bg-paper font-sans text-body antialiased;
+    line-height: 1.6;
+    overflow-x: clip;
+  }
+  h1, h2, h3 {
+    @apply text-ink;
+  }
+  /* Custom scrollbar: slim floating pill on a page-coloured track, accent on hover */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--paper));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--line-strong));
+    border: 3px solid rgb(var(--paper));
+    border-radius: 999px;
+    transition: background-color .2s;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--accent) / .7);
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: rgb(var(--accent));
+  }
+  ::-webkit-scrollbar-corner {
+    background: rgb(var(--paper));
+  }
+  /* Firefox has no ::-webkit-scrollbar; Chromium would let these override the pill above */
+  @supports not selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: rgb(var(--line-strong)) rgb(var(--paper));
+    }
+  }
+
+  ::selection {
+    @apply bg-accent-soft text-ink;
+  }
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@layer components {
+  .wrap {
+    width: min(1200px, calc(100% - 32px));
+    margin-inline: auto;
+  }
+  @media (min-width: 768px) {
+    .wrap { width: min(1200px, calc(100% - 64px)); }
+  }
+
+  .section {
+    @apply border-t border-line py-20 md:py-28;
+  }
+
+  .label {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[.14em] text-muted;
+  }
+
+  .display {
+    @apply font-serif font-normal tracking-[-.02em] text-ink;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition duration-200;
+  }
+  .btn-primary {
+    @apply btn relative overflow-hidden bg-ink text-paper hover:bg-accent-dark;
+  }
+  /* Light sweep across primary buttons on hover */
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, .3) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform .7s ease;
+  }
+  .btn-primary:hover::after {
+    transform: translateX(120%);
+  }
+
+  .text-gradient {
+    @apply animate-gradient-pan bg-[length:300%_100%] bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #0B6E4F, #12B76A, #0EA5A4, #12B76A, #0B6E4F);
+  }
+  .dark .text-gradient,
+  .text-gradient-light {
+    @apply animate-gradient-pan bg-[length:300%_100%] bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #7DD3AE, #B5E655, #5EEAD4, #B5E655, #7DD3AE);
+  }
+  .btn-ghost {
+    @apply btn border border-line-strong text-ink hover:border-ink;
+  }
+}
+
+/* Theme switch: the new theme is revealed as a growing circle (animated from ThemeToggle) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Case-study drawer */
+@keyframes drawer-in {
+  from { transform: translateX(100%); }
+  to { transform: none; }
+}
+@keyframes backdrop-in {
+  from { opacity: 0; }
+}
+dialog.drawer[open] {
+  animation: drawer-in .38s cubic-bezier(.2, .8, .2, 1);
+}
+dialog.drawer[open]::backdrop {
+  animation: backdrop-in .3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
