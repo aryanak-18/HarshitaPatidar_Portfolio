@@ -29,6 +29,7 @@ export default function CompanyBar() {
               <button
                 type="button"
                 onClick={() => select(i)}
+                data-cta={`Company bar: ${job.company}`}
                 className={`group flex items-center gap-2.5 rounded-full py-1 pl-1 pr-3.5 transition-colors duration-300 ${current === i ? 'bg-ink/[.06] text-ink' : 'text-muted hover:text-ink'}`}
               >
                 <span className={`relative h-6 w-6 shrink-0 transition duration-300 ${current === i ? '' : 'opacity-75 group-hover:opacity-100'}`}>

@@ -158,10 +158,10 @@ export default function Hero() {
               {hero.tagline.pillars}.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <a href={config.resume} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href={config.resume} target="_blank" rel="noopener noreferrer" data-cta="Hero: View resume" className="btn-primary">
                 View resume <span aria-hidden="true">↗</span>
               </a>
-              <a href="#experience" className="btn-ghost bg-surface/60 backdrop-blur">
+              <a href="#experience" data-cta="Hero: Experience" className="btn-ghost bg-surface/60 backdrop-blur">
                 Experience
               </a>
             </div>

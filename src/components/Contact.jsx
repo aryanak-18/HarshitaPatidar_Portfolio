@@ -22,7 +22,7 @@ export default function Contact() {
             <div className="glass rounded-2xl !border-white/15 !bg-white/[.06]">
               <div className="p-6">
                 <div className="label !text-white/50">Email</div>
-                <a href={`mailto:${config.email}`} className="mt-2 block break-all font-serif text-[clamp(20px,2.2vw,26px)] text-white hover:text-accent-light">
+                <a href={`mailto:${config.email}`} data-cta="Contact: Email address" className="mt-2 block break-all font-serif text-[clamp(20px,2.2vw,26px)] text-white hover:text-accent-light">
                   {config.email}
                 </a>
                 <div className="mt-5 flex flex-wrap gap-3">
@@ -31,11 +31,12 @@ export default function Contact() {
                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(config.email)}&su=${encodeURIComponent('Hello Harshita')}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-cta="Contact: Send an email"
                     className="btn bg-white text-navy hover:bg-accent-light"
                   >
                     Send an email <span aria-hidden="true">→</span>
                   </a>
-                  <a href={config.linkedin} target="_blank" rel="noopener noreferrer" className="btn border border-white/25 text-white hover:border-white">
+                  <a href={config.linkedin} target="_blank" rel="noopener noreferrer" data-cta="Contact: LinkedIn" className="btn border border-white/25 text-white hover:border-white">
                     Connect on LinkedIn <span aria-hidden="true">↗</span>
                   </a>
                 </div>

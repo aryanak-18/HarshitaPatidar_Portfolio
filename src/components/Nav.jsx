@@ -59,7 +59,7 @@ export default function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href="#contact" className="btn-primary hidden !py-2.5 sm:inline-flex">
+          <a href="#contact" data-cta="Nav: Get in touch" className="btn-primary hidden !py-2.5 sm:inline-flex">
             Get in touch
           </a>
           <ThemeToggle />

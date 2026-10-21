@@ -56,6 +56,7 @@ function CaseCard({ item, index, onOpen }) {
             type="button"
             onClick={() => onOpen(index)}
             aria-label={`Read case study: ${item.title}`}
+            data-cta={`Case study: ${item.title}`}
             className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-line-strong text-ink transition duration-300 after:absolute after:inset-0 after:content-[''] group-hover:border-ink group-hover:bg-ink group-hover:text-paper"
           >
             <span aria-hidden="true" className="transition-transform duration-300 group-hover:-rotate-45">
